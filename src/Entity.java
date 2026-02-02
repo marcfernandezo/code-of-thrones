@@ -8,7 +8,7 @@ public class Entity {
     private int attackPoints;
     private int magicAttackPoints;
 
-    public Entity(
+    public void Entity(
             String name, int level, int heartPoints, int mana, int attackPoints, int magicAttackPoints
     ) {
         this.name = name;
