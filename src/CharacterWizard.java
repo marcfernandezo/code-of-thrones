@@ -8,4 +8,11 @@ public class CharacterWizard extends Entity {
         super.setAttackPoints(10);
         super.setMagicAttackPoints(35);
     }
+
+    public void attack(Entity character) {
+        int hitPoints = this.getAttackPoints() + this.getMagicAttackPoints();
+        this.setMana(this.getMana() - 20);
+
+        character.setHeartPoints(character.getHeartPoints() - hitPoints);
+    }
 }
