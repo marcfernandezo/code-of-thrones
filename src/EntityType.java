@@ -1,3 +1,3 @@
-public enum CardType {
+public enum EntityType {
     COMMON, RARE, EPIC, LEGENDARY
 }
