@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Entity {
+public class Entity implements Combatible {
     private String name;
     private int level;
     private int heartPoints;
@@ -94,6 +94,7 @@ public class Entity {
         return EntityType.LEGENDARY;
     }
 
+    @Override
     public int getTotalAttackHits() {
         double multiplier = switch (entityTypeRarity) {
             case COMMON -> 1.0;
@@ -101,12 +102,12 @@ public class Entity {
             case EPIC -> 1.6;
             case LEGENDARY -> 2.0;
         };
-
         return (int) ((attackPoints + magicAttackPoints) * multiplier);
     }
 
+    @Override
     public void attack(Entity character) {
         this.mana -= 20;
-        character.heartPoints -= getTotalAttackHits();
+        character.setHeartPoints(character.getHeartPoints() - getTotalAttackHits());
     }
 }
