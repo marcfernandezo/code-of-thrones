@@ -75,17 +75,27 @@ public class Entity {
         this.magicAttackPoints = magicAttackPoints;
     }
 
-    public void attack(Entity character) {
-        int hitPoints = this.attackPoints + this.magicAttackPoints;
-        this.mana -= 20;
-        character.heartPoints -= hitPoints;
-    }
-
     public EntityType getEntityTypeRarity() {
         return entityTypeRarity;
     }
 
     public void setEntityTypeRarity(EntityType rarity) {
         this.entityTypeRarity = rarity;
+    }
+
+    public int getTotalAttackHits() {
+        double multiplier = switch (entityTypeRarity) {
+            case COMMON -> 1.0;
+            case RARE -> 1.3;
+            case EPIC -> 1.6;
+            case LEGENDARY -> 2.0;
+        };
+
+        return (int) ((attackPoints + magicAttackPoints) * multiplier);
+    }
+
+    public void attack(Entity character) {
+        this.mana -= 20;
+        character.heartPoints -= getTotalAttackHits();
     }
 }
