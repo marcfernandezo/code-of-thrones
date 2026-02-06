@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Game {
     public static void main() throws InterruptedException {
+        Random random = new Random();
 
         System.out.println("🔹 Inicializando personajes...");
 
@@ -21,8 +23,15 @@ public class Game {
         System.out.println("\n🔹 Comienza el combate...");
         Thread.sleep(500);
 
-        Entity player1 = characters.get(0); // Mago
-        Entity player2 = characters.get(1); // Guerrero
+        int index1 = random.nextInt(characters.size());
+        Entity player1 = characters.get(index1);
+
+        int index2;
+        do {
+            index2 = random.nextInt(characters.size());
+        } while (index2 == index1);
+
+        Entity player2 = characters.get(index2);
 
         int turn = 1;
 
