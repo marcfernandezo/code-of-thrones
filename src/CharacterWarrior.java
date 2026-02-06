@@ -9,6 +9,7 @@ public class CharacterWarrior extends Entity {
         super.setMagicAttackPoints(5);
     }
 
+    @Override
     public void attack(Entity character) {
         int hitPoints = this.getAttackPoints() + this.getMagicAttackPoints();
         this.setMana(this.getMana() - 20);
