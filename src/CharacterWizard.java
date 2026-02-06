@@ -5,6 +5,8 @@ public class CharacterWizard extends Entity {
         super.setHeartPoints(220);
         super.setMana(100);
 
+        super.setEntityTypeRarity(Entity.randomEntityTypeRarity());
+
         super.setAttackPoints(10);
         super.setMagicAttackPoints(35);
     }

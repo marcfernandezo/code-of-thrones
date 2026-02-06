@@ -5,6 +5,8 @@ public class CharacterArcher extends Entity {
         super.setHeartPoints(250);
         super.setMana(80);
 
+        super.setEntityTypeRarity(Entity.randomEntityTypeRarity());
+
         super.setAttackPoints(30);
         super.setMagicAttackPoints(9);
     }

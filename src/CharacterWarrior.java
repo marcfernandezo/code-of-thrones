@@ -5,6 +5,8 @@ public class CharacterWarrior extends Entity {
         super.setHeartPoints(350);
         super.setMana(150);
 
+        super.setEntityTypeRarity(Entity.randomEntityTypeRarity());
+
         super.setAttackPoints(38);
         super.setMagicAttackPoints(5);
     }
