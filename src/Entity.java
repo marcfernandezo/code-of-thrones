@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Entity {
     private String name;
     private int level;
@@ -81,6 +83,15 @@ public class Entity {
 
     public void setEntityTypeRarity(EntityType rarity) {
         this.entityTypeRarity = rarity;
+    }
+
+    public static EntityType randomEntityTypeRarity() {
+        int random = new Random().nextInt(100);
+
+        if (random < 60) return EntityType.COMMON;
+        if (random < 85) return EntityType.RARE;
+        if (random < 97) return EntityType.EPIC;
+        return EntityType.LEGENDARY;
     }
 
     public int getTotalAttackHits() {
