@@ -4,17 +4,21 @@ public class Entity {
     private int heartPoints;
     private int mana;
 
+    private EntityType entityTypeRarity;
 
     private int attackPoints;
     private int magicAttackPoints;
 
     public Entity(
-            String name, int level, int heartPoints, int mana, int attackPoints, int magicAttackPoints
+            String name, int level, int heartPoints, int mana, int attackPoints,
+            int magicAttackPoints, EntityType entityTypeRarity
     ) {
         this.name = name;
         this.level = level;
         this.heartPoints = heartPoints;
         this.mana = mana;
+
+        this.entityTypeRarity = entityTypeRarity;
 
         this.attackPoints = attackPoints;
         this.magicAttackPoints = magicAttackPoints;
@@ -75,5 +79,13 @@ public class Entity {
         int hitPoints = this.attackPoints + this.magicAttackPoints;
         this.mana -= 20;
         character.heartPoints -= hitPoints;
+    }
+
+    public EntityType getEntityTypeRarity() {
+        return entityTypeRarity;
+    }
+
+    public void setEntityTypeRarity(EntityType rarity) {
+        this.entityTypeRarity = rarity;
     }
 }
