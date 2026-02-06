@@ -70,4 +70,10 @@ public class Entity {
     public void setMagicAttackPoints(int magicAttackPoints) {
         this.magicAttackPoints = magicAttackPoints;
     }
+
+    public void attack(Entity character) {
+        int hitPoints = this.attackPoints + this.magicAttackPoints;
+        this.mana -= 20;
+        character.heartPoints -= hitPoints;
+    }
 }
